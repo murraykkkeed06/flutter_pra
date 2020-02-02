@@ -1,71 +1,27 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: MyApp()));
+void main() => runApp(MyApp());
 
-
-
-class MyApp extends StatefulWidget{
-
-  @override
-  _StepperPraState createState() => _StepperPraState();
-
-}
-
-class _StepperPraState extends State<MyApp>{
-
-  int stepValue = 0;
-
-  List<Step> tempStepper = [
-    Step(
-      content: Text('data2'),
-      title: Text('data2'),
-      isActive: true,
-    ),
-    Step(
-      content: Text('data2'),
-      title: Text('data2'),
-      isActive: true,
-    ),
-    Step(
-      content: Text('data2'),
-      title: Text('data2'),
-      isActive: true,
-    ),
-    Step(
-      content: Text('data2'),
-      title: Text('data2'),
-      isActive: true,
-    ),
-    Step(
-      content: Text('data2'),
-      title: Text('data2'),
-      isActive: true,
-    ),
-    Step(
-      content: Text('data2'),
-      title: Text('data2'),
-      isActive: true,
-    ),
-  ];
-
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('fun'),
-      ),
-      body: Stepper(
-        steps: tempStepper,
-        type: StepperType.vertical,
-        currentStep: stepValue, 
-        onStepTapped: (tapValue) {
-          setState((){
-            stepValue = tapValue;
-          });
-        },
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Image from Network"),
+        ),
+        body: Container(
+            child: Column(
+          children: <Widget>[
+            // Load image from network
+            Image.network(
+                'https://github.com/nisrulz/flutter-examples/raw/develop/image_from_network/img/flutter_logo.png'),
+            // even loads gifs
+            // Gif image from Giphy, all copyrights are owned by Giphy
+            Image.network(
+                'https://github.com/nisrulz/flutter-examples/raw/develop/image_from_network/img/loop_anim.gif'),
+          ],
+        )),
       ),
     );
   }
